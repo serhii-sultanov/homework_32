@@ -1,9 +1,9 @@
-interface diffResult {
+interface DiffResult {
     amount: number,
     array: string[]
 }
 
-const getDiff = (initialValue:string , valueToCompare:string) : diffResult => {
+const getDiff = (initialValue:string , valueToCompare:string) : DiffResult => {
     const initialArray: string[]  = initialValue.split("")
     const arrayToCompare: string[]  = valueToCompare.split("")
 
@@ -11,11 +11,10 @@ const getDiff = (initialValue:string , valueToCompare:string) : diffResult => {
         .filter(s => !arrayToCompare.includes(s))
         .concat(arrayToCompare.filter(s => !initialArray.includes(s)))
 
-    const result = {
+    return {
         amount: difference.length,
         array: difference
     }
-    return result
 }
 
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }

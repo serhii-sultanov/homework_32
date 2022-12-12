@@ -5,11 +5,10 @@ const getDiff = (initialValue, valueToCompare) => {
     const difference = initialArray
         .filter(s => !arrayToCompare.includes(s))
         .concat(arrayToCompare.filter(s => !initialArray.includes(s)));
-    const result = {
+    return {
         amount: difference.length,
         array: difference
     };
-    return result;
 };
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }
 console.log(getDiff('abcd', 'cdfe')); // { amount: 4, array: ['a', 'b', 'f', 'e'] }
